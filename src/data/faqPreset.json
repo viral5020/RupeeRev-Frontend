@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "question": "How much should I invest monthly?",
+    "answer": "A good rule of thumb is to invest 20-30% of your monthly surplus. Start with what you can afford consistently. Even ₹500/month in a SIP can grow significantly over time through compounding. Use the Goals page to calculate specific SIP amounts for your targets."
+  },
+  {
+    "id": 2,
+    "question": "How to reduce expenses?",
+    "answer": "Track your spending categories to identify where money goes. Common areas: dining out, subscriptions, impulse purchases. Set budgets for each category and review monthly. Cancel unused subscriptions. Cook at home more often. Use the Budget feature to set limits and get alerts."
+  },
+  {
+    "id": 3,
+    "question": "What is an emergency fund?",
+    "answer": "An emergency fund is money set aside to cover unexpected expenses like medical emergencies, job loss, or urgent repairs. It should be easily accessible (savings account or liquid funds) and cover 3-6 months of your essential expenses."
+  },
+  {
+    "id": 4,
+    "question": "How much emergency fund do I need?",
+    "answer": "Aim for 3-6 months of essential expenses (rent, groceries, utilities, EMIs). If you have dependents or unstable income, target 6 months. Calculate: Average monthly expenses × 6. Check your Emergency Fund Status widget on the Dashboard."
+  },
+  {
+    "id": 5,
+    "question": "Which SIP category is good for long-term?",
+    "answer": "For long-term goals (5+ years), equity funds or index funds typically offer higher returns (12-15% annually). For 3-5 years, balanced funds are safer. For short-term, debt funds or gold. Use the Mutual Fund Intelligence section to see current category performance."
+  },
+  {
+    "id": 6,
+    "question": "What is asset allocation?",
+    "answer": "Asset allocation is how you divide investments across different categories: equity (stocks), debt (bonds), gold, and balanced funds. A good mix reduces risk. Rule: 100 minus your age = % in equity. Check Portfolio page for your allocation health."
+  },
+  {
+    "id": 7,
+    "question": "Why did my expenses increase this month?",
+    "answer": "Check the Category Spike insight on Transactions page. Common causes: one-time purchases, seasonal spending, subscription renewals, or lifestyle inflation. Review your spending patterns and set alerts for unusual spikes."
+  },
+  {
+    "id": 8,
+    "question": "How do I reach my goals faster?",
+    "answer": "Increase your monthly SIP amount, choose higher-return categories (if risk allows), or reduce the target amount. Use the What-If Simulator in Goal details to test different scenarios. Higher priority goals get more surplus allocation automatically."
+  },
+  {
+    "id": 9,
+    "question": "How much insurance should I have?",
+    "answer": "Life insurance: 10-15x annual income. Health insurance: ₹5-10 lakhs minimum. Term insurance is cheaper than whole life. Ensure coverage for dependents. Review annually as income and responsibilities change."
+  },
+  {
+    "id": 10,
+    "question": "What are index funds?",
+    "answer": "Index funds track a market index (like Nifty 50) and invest in the same stocks in the same proportion. They're low-cost, diversified, and require minimal management. Good for beginners and long-term wealth building. Returns typically 10-12% annually."
+  },
+  {
+    "id": 11,
+    "question": "Should I invest for short-term goals?",
+    "answer": "For goals < 1 year, use savings accounts or liquid funds. For 1-3 years, debt funds or balanced funds. Avoid equity for short-term due to volatility. SIPs work best for 3+ years. Check minimum tenure requirements in your goal details."
+  },
+  {
+    "id": 12,
+    "question": "How to increase my credit score?",
+    "answer": "Pay bills on time, keep credit utilization below 30%, maintain old credit accounts, avoid too many credit inquiries, have a mix of credit types. Check score regularly and dispute errors. Good score (750+) gets better loan rates."
+  },
+  {
+    "id": 13,
+    "question": "What is a good savings rate?",
+    "answer": "Aim for 20-30% of income. Excellent: 30%+, Good: 20-30%, Needs improvement: <20%. Calculate: (Income - Expenses) / Income × 100. Track your savings rate on the Dashboard. Increase gradually if starting low."
+  },
+  {
+    "id": 14,
+    "question": "How much should I keep for rent?",
+    "answer": "Keep rent/housing costs below 30% of monthly income. If higher, consider: sharing accommodation, moving to a cheaper area, or negotiating rent. High rent reduces surplus available for investments and goals."
+  },
+  {
+    "id": 15,
+    "question": "What are high-risk funds?",
+    "answer": "Equity funds, small-cap funds, and sector-specific funds are high-risk but offer higher returns (15%+). Suitable for: long-term goals (5+ years), high risk tolerance, young investors. Not recommended for short-term or conservative investors."
+  },
+  {
+    "id": 16,
+    "question": "How to clear debt faster?",
+    "answer": "Prioritize high-interest debt first (credit cards, personal loans). Pay more than minimum EMI. Use debt snowball: pay off smallest debt first for motivation. Avoid new debt. Consider balance transfer for lower rates. Allocate surplus to debt before investments."
+  },
+  {
+    "id": 17,
+    "question": "Is gold a good investment?",
+    "answer": "Gold is good for: portfolio diversification (5-10%), inflation hedge, emergency liquidity. Returns: 7-10% long-term. Not ideal as primary investment. Consider gold ETFs or sovereign gold bonds over physical gold. Use for balanced asset allocation."
+  },
+  {
+    "id": 18,
+    "question": "How does compounding work?",
+    "answer": "Compounding means earning returns on your returns. Example: ₹10,000 at 12% for 10 years = ₹31,058. The longer you invest, the more compounding helps. Start early, invest regularly (SIP), stay invested. Use SIP calculator to see compounding effects."
+  },
+  {
+    "id": 19,
+    "question": "Should I invest if my salary is low?",
+    "answer": "Yes! Start small (₹500-1000/month). Consistency matters more than amount. Build emergency fund first, then start SIPs. Even small amounts compound over time. Increase investment as salary grows. Use surplus allocation to prioritize goals."
+  },
+  {
+    "id": 20,
+    "question": "How to plan retirement?",
+    "answer": "Calculate retirement corpus: 25-30x annual expenses. Start early (20s-30s). Invest 15-20% of income in equity-heavy SIPs. Use EPF, PPF, NPS for tax benefits. Review every 5 years. Consider inflation (6-7%). Use retirement calculators for specific targets."
+  },
+  {
+    "id": 21,
+    "question": "How to optimize loans?",
+    "answer": "Compare interest rates before taking loans. Prepay high-interest loans first. Use surplus to reduce principal. Refinance if rates drop. Avoid unnecessary loans. Keep total EMIs < 40% of income. Use loan calculators to compare options."
+  },
+  {
+    "id": 22,
+    "question": "Why SIP amounts fluctuate?",
+    "answer": "SIP amounts are calculated based on: available surplus, goal priority, category returns, and timeline. If surplus changes or goals are added/removed, allocations adjust automatically. Check Goal details to see current SIP and reasons."
+  },
+  {
+    "id": 23,
+    "question": "What to do if SIP timeline < 1 year?",
+    "answer": "SIPs require minimum 12 months for proper compounding. If timeline is shorter: increase SIP amount, reduce target amount, or use savings/debt funds instead. The system automatically enforces 12-month minimum. Check goal details for adjusted timeline."
+  },
+  {
+    "id": 24,
+    "question": "How much should I save from salary?",
+    "answer": "Follow 50/30/20 rule: 50% essentials, 30% financial goals + SIPs, 20% wants. Or save 20-30% of salary. Use Salary Planner to customize allocation. Track monthly to ensure you're meeting targets."
+  },
+  {
+    "id": 25,
+    "question": "Why is my SIP suggestion high?",
+    "answer": "SIP suggestions consider: goal priority (high gets more), category returns, timeline urgency, and available surplus. High-priority goals with short timelines need larger SIPs. Use What-If Simulator to adjust and see impact. System ensures total SIPs ≤ surplus."
+  }
+]
+
