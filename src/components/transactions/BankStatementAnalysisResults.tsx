@@ -26,7 +26,6 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
-  Cell,
 } from 'recharts';
 
 interface AnalysisResult {

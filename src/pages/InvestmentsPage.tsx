@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Typography, Box, CircularProgress, Alert } from '@mui/material';
+import { Grid, Typography, Box, CircularProgress } from '@mui/material';
 import PageHeader from '../components/common/PageHeader';
 import SurplusSummary from '../components/investments/SurplusSummary';
 import RiskSelector from '../components/investments/RiskSelector';
-import InvestmentCard from '../components/investments/InvestmentCard';
 import { getSurplus, getInvestmentSuggestions, getFinancialProfile } from '../services/investmentService';
 import { getCategoryPerformance, getAIRecommendation } from '../services/mutualFundService';
 import {

@@ -10,13 +10,11 @@ import {
   LinearProgress,
   Alert,
   Stack,
-  Paper,
   Chip,
 } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import apiClient from '../../services/apiClient';
 import { useSnackbar } from 'notistack';
-import { formatCurrency } from '../../utils/format';
 import BankStatementAnalysisResults from './BankStatementAnalysisResults';
 import { useAuth } from '../../context/AuthContext';
 

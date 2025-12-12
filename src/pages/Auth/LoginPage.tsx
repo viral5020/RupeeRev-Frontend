@@ -22,7 +22,6 @@ const LoginPage: React.FC = () => {
   const { login, register, loading } = useAuth();
   const navigate = useNavigate();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [mode, setMode] = React.useState<'login' | 'register'>('login');
   const [showPassword, setShowPassword] = React.useState(false);
@@ -34,7 +33,7 @@ const LoginPage: React.FC = () => {
 
   const handleGoogleLogin = () => {
     const redirectUrl = encodeURIComponent(redirect);
-    window.location.href = `http://localhost:5000/api/auth/google?redirect=${redirectUrl}`;
+    window.location.href = `${process.env.REACT_APP_BACKEND_API_ENDPOINT}/auth/google?redirect=${redirectUrl}`;
   };
 
   const handleSubmit = async (event: React.FormEvent) => {

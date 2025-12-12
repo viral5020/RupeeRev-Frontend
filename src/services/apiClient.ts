@@ -1,9 +1,12 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: process.env.REACT_APP_BACKEND_API_ENDPOINT || "http://localhost:5000/api",
   withCredentials: true,
 });
+
+console.warn("neel patel asjkdnaks askjdn asd  askdn",process.env.REACT_APP_BACKEND_API_ENDPOINT);
+
 
 export const setAuthToken = (token?: string) => {
   if (token) {
@@ -17,9 +20,9 @@ export const setAuthToken = (token?: string) => {
 apiClient.interceptors.request.use(
   (config) => {
     // Check if Authorization header is not already set
-    if (!config.headers.Authorization) {
-      const accessToken = localStorage.getItem('mm_access');
-      if (accessToken && accessToken !== 'cookie-session') {
+    if (!config.headers["Authorization"]) {
+      const accessToken = localStorage.getItem("mm_access");
+      if (accessToken && accessToken !== "cookie-session") {
         config.headers.Authorization = `Bearer ${accessToken}`;
       }
     }

@@ -43,8 +43,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const initAuth = async () => {
-      const { accessToken: storedToken, user: storedUser } = loadPersisted();
-
+      const { accessToken: storedToken, user: _storedUser } = loadPersisted();
       if (storedToken && storedToken !== 'cookie-session') {
         // Token exists in localStorage, set it in axios
         setAuthToken(storedToken);
