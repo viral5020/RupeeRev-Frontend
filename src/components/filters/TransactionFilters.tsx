@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, MenuItem, TextField, IconButton, Collapse, Badge, Stack, Typography, Paper } from '@mui/material';
+import { Box, Button, MenuItem, TextField, Collapse, Badge, Stack, Paper } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CloseIcon from '@mui/icons-material/Close';
 import DateRangePicker from '../common/DateRangePicker';

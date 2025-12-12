@@ -32,7 +32,9 @@ const DashboardPage: React.FC = () => {
         })
     });
 
-    const transactions = transactionsData?.docs || [];
+    const transactions = useMemo(() => {
+        return transactionsData?.docs || [];
+    }, [transactionsData]);
 
     // Calculate totals from transactions
     const stats = useMemo(() => {

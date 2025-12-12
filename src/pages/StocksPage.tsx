@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
     Box,
     Card,
@@ -27,25 +27,28 @@ const StocksPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const { enqueueSnackbar } = useSnackbar();
 
+    const loadStocks = useCallback(async () => {
+    try {
+        setLoading(true);
+        const [top, bySector] = await Promise.all([getTopStocks(5), getStocksBySector()]);
+        setTopStocks(top);
+        setStocksBySector(bySector);
+    } catch (error: any) {
+        if (error.response?.status !== 403) {
+            enqueueSnackbar(
+                error.response?.data?.message || 'Failed to load stocks',
+                { variant: 'error' }
+            );
+        }
+    } finally {
+        setLoading(false);
+    }
+}, [enqueueSnackbar]);
+
     useEffect(() => {
         loadStocks();
-    }, []);
+    }, [loadStocks]);
 
-    const loadStocks = async () => {
-        try {
-            setLoading(true);
-            const [top, bySector] = await Promise.all([getTopStocks(5), getStocksBySector()]);
-            setTopStocks(top);
-            setStocksBySector(bySector);
-        } catch (error: any) {
-            // Don't show toast for 403 - PremiumGuard handles the UI
-            if (error.response?.status !== 403) {
-                enqueueSnackbar(error.response?.data?.message || 'Failed to load stocks', { variant: 'error' });
-            }
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleUpdatePrices = async () => {
         try {

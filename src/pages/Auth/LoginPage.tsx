@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Button, Container, Divider, Grid, IconButton, Stack, TextField, Typography, useTheme, useMediaQuery, InputAdornment } from '@mui/material';
+import { Box, Button, Container, Divider, Grid, IconButton, Stack, TextField, Typography, InputAdornment } from '@mui/material';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -20,8 +19,6 @@ const GoogleIcon = () => (
 
 const LoginPage: React.FC = () => {
   const { login, register, loading } = useAuth();
-  const navigate = useNavigate();
-  const theme = useTheme();
 
   const [mode, setMode] = React.useState<'login' | 'register'>('login');
   const [showPassword, setShowPassword] = React.useState(false);

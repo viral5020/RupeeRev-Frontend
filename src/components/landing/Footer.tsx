@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="text-white font-semibold mb-4">Legal</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
-                            <li><a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a></li>
-                            <li><a href="#" className="hover:text-purple-400 transition-colors">Security</a></li>
+                            <li><a href="/" className="hover:text-purple-400 transition-colors">Privacy Policy</a></li>
+                            <li><a href="/" className="hover:text-purple-400 transition-colors">Terms of Service</a></li>
+                            <li><a href="/" className="hover:text-purple-400 transition-colors">Security</a></li>
                         </ul>
                     </div>
 
@@ -41,8 +41,8 @@ const Footer: React.FC = () => {
                         <h4 className="text-white font-semibold mb-4">Contact</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                             <li><a href="mailto:support@rupeerev.com" className="hover:text-purple-400 transition-colors">support@rupeerev.com</a></li>
-                            <li><a href="#" className="hover:text-purple-400 transition-colors">Twitter</a></li>
-                            <li><a href="#" className="hover:text-purple-400 transition-colors">LinkedIn</a></li>
+                            <li><a href="/" className="hover:text-purple-400 transition-colors">Twitter</a></li>
+                            <li><a href="/" className="hover:text-purple-400 transition-colors">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>

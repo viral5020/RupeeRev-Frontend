@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Box,
     Container,
@@ -42,11 +42,7 @@ const PricingPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [processingPayment, setProcessingPayment] = useState(false);
 
-    useEffect(() => {
-        loadSubscriptionStatus();
-    }, [user]);
-
-    const loadSubscriptionStatus = async () => {
+    const loadSubscriptionStatus = useCallback(async () => {
         if (!user) {
             setLoading(false);
             return;
@@ -60,7 +56,12 @@ const PricingPage: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [user]); 
+
+    useEffect(() => {
+        loadSubscriptionStatus();
+    }, [loadSubscriptionStatus]);
+
 
     const handlePurchase = async (type: 'monthly' | 'yearly' | 'tokens') => {
         // Check if user is logged in

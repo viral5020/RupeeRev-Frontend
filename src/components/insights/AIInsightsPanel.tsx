@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
     Paper,
     Typography,
@@ -46,11 +46,8 @@ const AIInsightsPanel: React.FC = () => {
 
     const { enqueueSnackbar } = useSnackbar();
 
-    useEffect(() => {
-        loadInsights();
-    }, []);
 
-    const loadInsights = async () => {
+        const loadInsights = useCallback(async () => {
         try {
             setLoading(true);
             const data = await getAiInsights();
@@ -62,7 +59,11 @@ const AIInsightsPanel: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [enqueueSnackbar]); 
+
+    useEffect(() => {
+        loadInsights();
+    }, [loadInsights]);
 
     const handleRefresh = async () => {
         try {

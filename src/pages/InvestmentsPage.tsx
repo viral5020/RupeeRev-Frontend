@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Grid, Typography, Box, CircularProgress } from '@mui/material';
 import PageHeader from '../components/common/PageHeader';
 import SurplusSummary from '../components/investments/SurplusSummary';
 import RiskSelector from '../components/investments/RiskSelector';
-import { getSurplus, getInvestmentSuggestions, getFinancialProfile } from '../services/investmentService';
+import { getSurplus, getFinancialProfile } from '../services/investmentService';
 import { getCategoryPerformance, getAIRecommendation } from '../services/mutualFundService';
 import {
     SurplusData,
-    InvestmentPlan,
     FinancialProfile,
     CategoryPerformance,
     AIRecommendation as AIMutualFundRecommendation,
@@ -23,7 +22,7 @@ const InvestmentsPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [surplus, setSurplus] = useState<SurplusData | null>(null);
     const [profile, setProfile] = useState<FinancialProfile | null>(null);
-    const [investmentPlan, setInvestmentPlan] = useState<InvestmentPlan | null>(null);
+    // const [investmentPlan, setInvestmentPlan] = useState<InvestmentPlan | null>(null);
     const [categoryPerformance, setCategoryPerformance] = useState<CategoryPerformance[]>([]);
     const [performanceLoading, setPerformanceLoading] = useState(true);
     const [aiRecommendation, setAIRecommendation] = useState<AIMutualFundRecommendation | null>(null);
@@ -33,61 +32,61 @@ const InvestmentsPage: React.FC = () => {
     const [aiError, setAIError] = useState<string | null>(null);
     const { enqueueSnackbar } = useSnackbar();
 
-    const fetchData = async () => {
-        try {
-            setLoading(true);
+    const fetchData = useCallback(async () => {
+    try {
+        setLoading(true);
 
-            // Fetch surplus and profile
-            const [surplusData, profileData] = await Promise.all([
-                getSurplus(),
-                getFinancialProfile(),
-            ]);
+        // Fetch surplus and profile
+        const [surplusData, profileData] = await Promise.all([
+            getSurplus(),
+            getFinancialProfile(),
+        ]);
 
-            setSurplus(surplusData);
-            setManualSurplus(Math.max(0, surplusData.surplus));
-            setProfile(profileData);
+        setSurplus(surplusData);
+        setManualSurplus(Math.max(0, surplusData.surplus));
+        setProfile(profileData);
 
-            // Get investment suggestions
-            if (surplusData.surplus > 0) {
-                const suggestions = await getInvestmentSuggestions(
-                    surplusData.surplus,
-                    profileData.riskLevel
-                );
-                setInvestmentPlan(suggestions);
-            }
-        } catch (error: any) {
-            // Don't show toast for 403 - PremiumGuard handles the UI
-            if (error.response?.status !== 403) {
-                enqueueSnackbar(error.response?.data?.message || 'Failed to load investment data', {
-                    variant: 'error',
-                });
-            }
-        } finally {
-            setLoading(false);
+        // Get investment suggestions
+        // if (surplusData.surplus > 0) {
+        //     const suggestions = await getInvestmentSuggestions(
+        //         surplusData.surplus,
+        //         profileData.riskLevel
+        //     );
+        //     setInvestmentPlan(suggestions);
+        // }
+    } catch (error: any) {
+        if (error.response?.status !== 403) {
+            enqueueSnackbar(
+                error.response?.data?.message || 'Failed to load investment data',
+                { variant: 'error' }
+            );
         }
-    };
+    } finally {
+        setLoading(false);
+    }
+}, [enqueueSnackbar]);
 
-    const fetchCategoryPerformance = async () => {
-        try {
-            setPerformanceLoading(true);
-            const data = await getCategoryPerformance();
-            setCategoryPerformance(data);
-        } catch (error: any) {
-            // Don't show toast for 403 - PremiumGuard handles the UI
-            if (error.response?.status !== 403) {
-                enqueueSnackbar(error.response?.data?.message || 'Failed to load AMFI performance', {
-                    variant: 'error',
-                });
-            }
-        } finally {
-            setPerformanceLoading(false);
+const fetchCategoryPerformance = useCallback(async () => {
+    try {
+        setPerformanceLoading(true);
+        const data = await getCategoryPerformance();
+        setCategoryPerformance(data);
+    } catch (error: any) {
+        if (error.response?.status !== 403) {
+            enqueueSnackbar(
+                error.response?.data?.message || 'Failed to load AMFI performance',
+                { variant: 'error' }
+            );
         }
-    };
+    } finally {
+        setPerformanceLoading(false);
+    }
+}, [enqueueSnackbar]);
 
     useEffect(() => {
         fetchData();
         fetchCategoryPerformance();
-    }, []);
+    }, [fetchData, fetchCategoryPerformance]);
 
     useEffect(() => {
         if (profile) {

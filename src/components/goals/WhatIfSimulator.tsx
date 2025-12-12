@@ -12,7 +12,6 @@ import {
   Stack,
 } from '@mui/material';
 import { formatCurrency } from '../../utils/format';
-import apiClient from '../../services/apiClient';
 
 interface WhatIfSimulatorProps {
   goalId: string;

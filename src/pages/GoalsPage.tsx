@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Box, Button, Grid, Typography, CircularProgress, IconButton, TextField, Stack } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
@@ -26,27 +26,30 @@ const GoalsPage: React.FC = () => {
     const [surplusInput, setSurplusInput] = useState('');
     const { enqueueSnackbar } = useSnackbar();
 
-    const loadGoals = async () => {
+   const loadGoals = useCallback(async () => {
         try {
             setLoading(true);
             const [goalData, surplusData] = await Promise.all([fetchGoals(), getSurplus()]);
             setGoals(goalData);
             setSurplus(surplusData.surplus);
             setManualSurplus(surplusData.manualSurplus ?? null);
-            setSurplusInput((surplusData.manualSurplus ?? surplusData.surplus).toString());
+            setSurplusInput(
+                (surplusData.manualSurplus ?? surplusData.surplus).toString()
+            );
         } catch (error: any) {
-            // Don't show toast for 403 - PremiumGuard handles the UI
             if (error.response?.status !== 403) {
-                enqueueSnackbar(error.response?.data?.message || 'Unable to load goals', { variant: 'error' });
+                enqueueSnackbar(error.response?.data?.message || 'Unable to load goals', {
+                    variant: 'error',
+                });
             }
         } finally {
             setLoading(false);
         }
-    };
+    }, [enqueueSnackbar]);
 
     useEffect(() => {
         loadGoals();
-    }, []);
+    }, [loadGoals]);
 
     const handleCreateGoal = async (payload: CreateGoalPayload) => {
         await createGoal(payload);

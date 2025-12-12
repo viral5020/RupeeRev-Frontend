@@ -26,11 +26,9 @@ const TransactionTrendChart: React.FC<TransactionTrendChartProps> = ({ transacti
 
         // Sort by date (assuming transactions might not be sorted, or we want chronological order)
         // Note: LocaleDateString sorting is tricky, better to use timestamp for sorting
-        const sortedData = Object.values(dailyStats).sort((a, b) => {
-            // This is a rough sort, might need better date parsing if spanning years, but for current month it's okay-ish
-            // Better approach:
-            return new Date(a.date).getTime() - new Date(b.date).getTime();
-        });
+        // const sortedData = Object.values(dailyStats).sort((a, b) => {
+        //     return new Date(a.date).getTime() - new Date(b.date).getTime();
+        // });
 
         // Actually, let's do it properly with timestamps
         const map = new Map<string, { date: string; income: number; expense: number; timestamp: number }>();
